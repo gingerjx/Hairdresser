@@ -1,0 +1,10 @@
+.visit {
+    background-color: var(--green-color);
+}
+
+.unit > input {
+    width: 200px;
+    height: 30px;
+    border-radius: var(--radius);
+    margin: 10px 0;
+}

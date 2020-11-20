@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/glob.css}" >
+    <link rel="stylesheet" th:href="@{/styles/bookAndCancel.css}" >
+    <link rel="stylesheet" th:href="@{/styles/book.css}" >
+    <script type="text/javascript" th:src="@{/scripts/fillCalendar.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hairdresser</title>
+</head>
+<body>
+<div id="main-container">
+    <div id="recentVisits">
+        <div id="left-title-bar">Earliest available terms</div>
+        <div class="visit" th:each="visit : ${bookedVisits}">
+            <span class="visit-item" th:utext="'Date: ' + ${visit.day} + '/' + ${visit.month} + '   ' + ${visit.hour} + ':00'"></span>
+            <span class="visit-item">Available</span>
+        </div>
+    </div>
+
+    <form id="termForm" th:action="@{/booking}" th:object="${visitInfo}">
+        <span>Choose date of your visit</span>
+
+        <div id="date">
+            <div class="unit">
+                Day
+                <select id="days" th:field="*{day}" onchange="onDayChange()"></select>
+            </div>
+            <div class="unit">
+                Month
+                <select id="months" th:field="*{month}" onchange="onMonthChange()">
+                    <th:block th:each="month : ${months}">
+                        <option th:value="${month}" th:text="${month}"></option>
+                    </th:block>
+                </select>
+            </div>
+            <div class="unit">
+                Hour
+                <select id="hours" th:field="*{hour}"></select>
+            </div>
+        </div>
+
+        <span>Enter your data</span>
+        <div id="user-data">
+            <div class="unit">
+                Name
+                <input type="text" th:field="*{user.name}" placeholder="Name">
+            </div>
+            <div class="unit">
+                Surname
+                <input type="text" th:field="*{user.surname}" placeholder="Surname">
+            </div>
+            <div class="unit">
+                Phone
+                <input type="text" th:field="*{user.phone}" placeholder="Phone">
+            </div>
+            <!-- <input id="code" type="text" th:field="*{code}" placeholder="Code"> -->
+        </div>
+        <input id="submit" type="submit" value="Book visit">
+    </form>
+
+    <form th:action="@{/}">
+        <input id="back" type="submit" value="Back to home">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+#main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#recentVisits {
+    display: flex;
+    flex-direction: column;
+    flex: 0.25;
+}
+
+#left-title-bar, .visit {
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: var(--radius);
+}
+
+#left-title-bar {
+    font-size: xx-large;
+}
+
+.visit {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+}
+
+.visit-item {
+    display: block;
+    padding: 5px 0px;
+}
+
+#termForm {
+    flex: 0.75;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#termForm > * {
+    margin: 20px
+}
+
+#termForm span {
+    color:white;
+    font-size: xx-large;
+    text-align-last:center;
+}
+
+.unit {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    font-size: large;
+}
+select {
+    width: 150px;
+    height: 100px;
+    font-size: xx-large;
+    border-radius: var(--radius);
+}
+
+select:active, #code:active {
+    outline: none;
+}
+
+#date {
+    display: flex;
+    flex-direction: row;
+}
+
+#submit {
+    color:white;
+    font-size: large;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: var(--green-color);
+    border-radius: var(--radius);
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/glob.css}">
+    <link rel="stylesheet" th:href="@{/styles/message.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hairdresser</title>
+</head>
+<body>
+    <div id="main-container">
+        <div class="message positive-msg" th:if="${success == true}">
+            <span class="term" th:utext="${term}" />
+            <span class="msg" th:utext="${message}" />
+            <span class="userCode" th:if="${code != ''}" th:utext="${code}" />
+            <span id="info" th:if="${code != ''}">Save above code. You can use it to cancel your visit.</span>
+        </div>
+        <div class="message negative-msg" th:if="${success == false}">
+            <span class="term" th:utext="${term}" />
+            <span class="msg" th:utext="${message}" />
+        </div>
+        <form th:action="@{/}">
+            <input id="back" type="submit" value="Back to home">
+        </form>
+    </div>
+</body>
+</html>
