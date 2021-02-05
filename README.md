@@ -1,6 +1,6 @@
 # Hairdresser
 
-Simple hairdresser salon website written in [Spring Boot](https://spring.io).
+Training task performing simple hairdresser salon website written in [Spring Boot](https://spring.io).
 
 ## Prerequirements
 
